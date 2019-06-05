@@ -116,4 +116,14 @@ describe('AppComponent', () => {
     const totalPriceExclusiveVatInput: HTMLTableDataCellElement = ne.querySelector('#totalPriceExclusiveVat');
     expect(totalPriceExclusiveVatInput.textContent).toBe('42.00');
   });
+
+  // test made with Katrin
+  it('should not be a negative number', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const de = fixture.debugElement;
+    const ne: HTMLElement = de.nativeElement;
+    const app: AppComponent = de.componentInstance;
+
+    expect(app.priceInclusiveVat).toBeGreaterThanOrEqual(0);
+  });
 });
